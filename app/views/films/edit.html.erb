@@ -1,0 +1,6 @@
+<h2>Edit Movie</h2>
+
+<%= render 'form' %>
+
+<%= link_to "Cancel", film_path(@film) %>
+<%= button_to 'Delete Movie', @film, method: :delete, data: { confirm: 'Are you sure?'} %>
