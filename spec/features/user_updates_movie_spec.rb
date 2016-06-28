@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature "user visits edit page" do
-
   scenario "user edits movie" do
     wick = FactoryGirl.create(:film)
 
