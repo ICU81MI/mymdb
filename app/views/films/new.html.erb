@@ -1,0 +1,27 @@
+<h2>Add a Movie</h2>
+
+<%= form_for @film do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+
+  <%= f.label :cast %>
+  <%= f.text_field :cast %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <div class="row column">
+    <p>Have you watched this movie?</p>
+    <% @watched_collection.each do |watched| %>
+      <%=f.radio_button(:watched, "#{watched}") %>
+      <%= label_tag(:"#{watched}", "#{watched}") %>
+    <% end %>
+  </div>
+
+  <%= f.submit "Submit" %>
+  <br><br>
+  <%= link_to "Home", films_path %>
+<% end %>

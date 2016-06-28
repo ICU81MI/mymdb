@@ -1,0 +1,63 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/gregward/challenges/mymdb3/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/gregward/challenges/mymdb3/app/models/film.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/gregward/challenges/mymdb3/app/controllers/films_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/gregward/challenges/mymdb3/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1467128161
+  }
+}
