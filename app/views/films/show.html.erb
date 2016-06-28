@@ -4,4 +4,5 @@
 <p> Cast: <%= @film.cast %> </p>
 <p> Watched? <%= @film.watched %> </p>
 
+<%= link_to 'Edit', edit_film_path(@film) %>
 <%= link_to "Back", films_path %>

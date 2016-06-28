@@ -14,7 +14,7 @@ class FilmsController < ApplicationController
   end
 
   def create
-    @film = Film.new(films_params)
+    @film = Film.new(film_params)
 
     if @film.save
       flash[:notice] = "Movie added successfully"
@@ -25,11 +25,35 @@ class FilmsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @watched_collection = ["Yes", "No"]
+    @film = Film.find(params[:id])
+  end
+
+  def update
+    @film = Film.find(params[:id])
+
+    if @film.update(film_params)
+      flash[:notice] = "Movie successfully updated"
+      redirect_to film_path(@film)
+    else
+      flash[:alert] = "Movie not updated"
+      render :edit
+    end
+  end
+
+  def destroy
+    @film = Film.find(params[:id])
+    @film.destroy
+    flash[:notice] = "Movie deleted"
+    redirect_to films_path
+  end
 end
 
 private
 
-def films_params
+def film_params
   params.require(:film).permit(
   :title,
   :year,
