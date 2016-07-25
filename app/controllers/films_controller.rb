@@ -3,7 +3,7 @@ class FilmsController < ApplicationController
 
   def index
     if current_user
-      @films = Film.all
+      @films = current_user.films
     else
       redirect_to new_user_session_path
     end
@@ -16,6 +16,7 @@ class FilmsController < ApplicationController
   def new
     @film = Film.new
     @watched_collection = ["Yes", "No"]
+    @rating_collection = [1, 2, 3, 4, 5]
   end
 
   def create
@@ -26,6 +27,7 @@ class FilmsController < ApplicationController
       redirect_to films_path
     else
       @watched_collection = ["Yes", "No"]
+      @rating_collection = [1, 2, 3, 4, 5]
       flash[:error] = @film.errors.full_messages.join(". ")
       render :new
     end
@@ -33,6 +35,7 @@ class FilmsController < ApplicationController
 
   def edit
     @watched_collection = ["Yes", "No"]
+    @rating_collection = [1, 2, 3, 4, 5]
     @film = Film.find(params[:id])
   end
 
@@ -64,5 +67,7 @@ def film_params
   :year,
   :cast,
   :description,
-  :watched)
+  :watched,
+  :rating
+  ).merge(user: current_user)
 end
