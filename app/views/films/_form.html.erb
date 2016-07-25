@@ -19,5 +19,13 @@
   <% end %>
 </div>
 
+<div class="row column">
+  <p>Rate this movie</p>
+  <% @rating_collection.each do |rating| %>
+    <%=f.radio_button(:rating, "#{rating}") %>
+    <%= label_tag(:"#{rating}", "#{rating}") %>
+  <% end %>
+</div>
+
 <%= f.submit "Submit" %>
 <% end %>
