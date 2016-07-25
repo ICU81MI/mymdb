@@ -1,7 +1,12 @@
 class FilmsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @films = Film.all
+    if current_user
+      @films = Film.all
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
