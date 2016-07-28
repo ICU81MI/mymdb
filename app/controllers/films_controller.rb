@@ -4,6 +4,9 @@ class FilmsController < ApplicationController
   def index
     if current_user
       @films = current_user.films
+      @film = Film.new
+      @watched_collection = ["Yes", "No"]
+      @rating_collection = [1, 2, 3, 4, 5]
     else
       redirect_to new_user_session_path
     end

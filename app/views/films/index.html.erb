@@ -1,9 +1,64 @@
-<h1>Movies</h1>
+<script>
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("form").hide();
+    $("button").click(function(){
+        $("form").toggle();
+    });
+});
+</script>
+
+<h2>Your Movies</h2>
   <ul>
     <% @films.each do |film| %>
       <li>
         <%= link_to film.title, film_path(film) %>
       </li>
+      <p>
+        Watched? <%= film.watched %>
+      </p>
+      <p>
+        <% if film.watched = "Yes" %>
+          <%= film.rating %>
+        <% end %>
+      </p>
+      <%= link_to 'Update', edit_film_path(film) %>
     <% end %>
   </ul>
-    <%= link_to "Add a Movie", new_film_path %>
+
+<button>Add a Movie</button>
+
+<div id="form">
+  <%= form_for @film do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+
+    <%= f.label :cast %>
+    <%= f.text_field :cast %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <div class="row column">
+      <p>Have you watched this movie?</p>
+      <% @watched_collection.each do |watched| %>
+        <%=f.radio_button(:watched, "#{watched}") %>
+        <%= label_tag(:"#{watched}", "#{watched}") %>
+      <% end %>
+    </div>
+
+    <div class="row column">
+      <p>Rate this movie</p>
+      <% @rating_collection.each do |rating| %>
+        <%=f.radio_button(:rating, "#{rating}") %>
+        <%= label_tag(:"#{rating}", "#{rating}") %>
+      <% end %>
+    </div>
+
+<%= f.submit "Add Movie" %>
+<% end %>
+</div>
