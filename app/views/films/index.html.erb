@@ -10,55 +10,59 @@ $("form").hide();
 </script>
 
 <h2>Your Movies</h2>
-  <ul>
-    <% @films.each do |film| %>
-      <li>
-        <%= link_to film.title, film_path(film) %>
-      </li>
-      <p>
-        Watched? <%= film.watched %>
-      </p>
-      <p>
-        <% if film.watched = "Yes" %>
-          <%= film.rating %>
+  <div class="row">
+    <div class="large-6 columns text-center" id="movie-list">
+      <ul class="no-bullet">
+        <% @films.each do |film| %>
+          <li><strong>
+            <%= film.title %>
+          </strong>
+          <p> Watched?  <%= film.watched %></p>
+          <p><% if film.watched = "Yes" %>
+              Rating: <%= film.rating %>/5
+             <% end %></p>
+          <%= link_to 'Details', film_path(film) %>
+          <%= link_to 'Update', edit_film_path(film) %></li>
         <% end %>
-      </p>
-      <%= link_to 'Update', edit_film_path(film) %>
-    <% end %>
-  </ul>
-
-<button>Add a Movie</button>
-
-<div id="form">
-  <%= form_for @film do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :year %>
-    <%= f.text_field :year %>
-
-    <%= f.label :cast %>
-    <%= f.text_field :cast %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <div class="row column">
-      <p>Have you watched this movie?</p>
-      <% @watched_collection.each do |watched| %>
-        <%=f.radio_button(:watched, "#{watched}") %>
-        <%= label_tag(:"#{watched}", "#{watched}") %>
-      <% end %>
+      </ul><br><br>
     </div>
 
-    <div class="row column">
-      <p>Rate this movie</p>
-      <% @rating_collection.each do |rating| %>
-        <%=f.radio_button(:rating, "#{rating}") %>
-        <%= label_tag(:"#{rating}", "#{rating}") %>
-      <% end %>
-    </div>
+    <div class="large-6 columns text-center" data-sticky-container>
+      <div class="sticky" data-sticky data-anchor="movie-list">
+    <button class="button button1"><strong>Add a Movie</strong></button>
 
-<%= f.submit "Add Movie" %>
-<% end %>
-</div>
+      <div id="form">
+        <%= form_for @film do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+
+          <%= f.label :year %>
+          <%= f.text_field :year %>
+
+          <%= f.label :cast %>
+          <%= f.text_field :cast %>
+
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+
+          <div class="row column">
+            <p>Have you watched this movie?</p>
+            <% @watched_collection.each do |watched| %>
+              <%=f.radio_button(:watched, "#{watched}") %>
+              <%= label_tag(:"#{watched}", "#{watched}") %>
+            <% end %>
+          </div>
+
+          <div class="row column">
+            <p>Rate this movie</p>
+            <% @rating_collection.each do |rating| %>
+              <%=f.radio_button(:rating, "#{rating}") %>
+              <%= label_tag(:"#{rating}", "#{rating}") %>
+            <% end %>
+          </div>
+
+      <button class="button button1"><%= f.submit "Add Movie" %></button>
+      <% end %>
+      </div>
+    </div>
+  </div>
