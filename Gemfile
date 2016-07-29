@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'kaminari'
 gem 'pg_search'
+gem 'puma'
 
 group :development, :test do
   gem 'capybara'
@@ -23,4 +24,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
 end
