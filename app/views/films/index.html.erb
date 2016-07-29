@@ -2,9 +2,9 @@
 src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-$("form").hide();
+$("#new_film").hide();
     $("button").click(function(){
-        $("form").toggle();
+        $("#new_film").toggle();
     });
 });
 </script>
@@ -31,7 +31,7 @@ $("form").hide();
       <div class="sticky" data-sticky data-anchor="movie-list">
     <button class="button button1"><strong>Add a Movie</strong></button>
 
-      <div id="form">
+      <div id="film-form">
         <%= form_for @film do |f| %>
           <%= f.label :title %>
           <%= f.text_field :title %>
@@ -66,3 +66,8 @@ $("form").hide();
       </div>
     </div>
   </div>
+</div>
+
+<% if !params[:search] %>
+  <%= paginate @films %>
+<% end %>

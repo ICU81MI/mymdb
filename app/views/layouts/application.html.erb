@@ -14,14 +14,20 @@
   <body>
     <div class="top-bar">
       <div class="top-bar-title">
-        <strong><h1>
-          <%= link_to "myMDB", films_path %>
-        </h1></strong>
-          <h4>Your personal movie database</h4>
+          <strong><h1>
+            <%= link_to "myMDB", films_path %>
+          </h1></strong>
+            <h4>Your personal movie database</h4>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %>
       </div>
-        <div class="top-bar-right">
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %>
-     </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <%= form_tag(films_path, :method => "get", id: "search-form", style: "background-color:white") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Films" %>
+            <%= submit_tag "Search", :name => nil, style: "background-color:white" %>
+          <% end %>
+        </ul>
+      </div>
    </div>
 
    <div class="row column">

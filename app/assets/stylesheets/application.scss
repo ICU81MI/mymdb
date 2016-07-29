@@ -16,7 +16,7 @@
 
  */
 h1 {
-  color: #ff0000 ;
+  color: red;
 }
 
 h2 {
@@ -33,7 +33,7 @@ h4 {
 }
 
 .button {
-  background-color: #ff0000;
+  background-color: red;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -51,11 +51,11 @@ h4 {
 .button1 {
     background-color: white;
     color: black;
-    border: 2px solid #ff0000;
+    border: 2px solid red;
 }
 
 .button1:hover {
-    background-color: #ff0000;
+    background-color: red;
     color: white;
 }
 
@@ -72,6 +72,30 @@ ul li {
 
 ul li:last-child {
     border-bottom: none
+}
+
+#menu {
+  border: none;
+}
+
+.pagination {
+  text-align: center;
+  li {
+
+    float: left;
+
+    a {
+      color: black;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &.current {
+      background-color: #ddd;
+    }
+  }
 }
 
 // .log-in {
