@@ -4,6 +4,11 @@ class FilmsController < ApplicationController
   def index
     if current_user
       @films = current_user.films
+      if params[:search]
+        @films = Film.search(params[:search]).order(:title)
+      else
+        @films = Film.order(:title).page params[:page]
+      end
       @film = Film.new
       @watched_collection = ["Yes", "No"]
       @rating_collection = [1, 2, 3, 4, 5]
