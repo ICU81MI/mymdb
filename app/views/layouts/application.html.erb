@@ -14,7 +14,10 @@
   <body>
     <div class="top-bar">
       <div class="top-bar-title">
-        <strong><h1>myMDB</h1></strong>
+        <strong><h1>
+          <%= link_to "myMDB", films_path %>
+        </h1></strong>
+          <h4>Your personal movie database</h4>
       </div>
         <div class="top-bar-right">
         <%= link_to "Sign out", destroy_user_session_path, method: :delete if current_user %>
@@ -25,7 +28,7 @@
    <% flash.each do |name, msg| %>
      <% if msg.is_a?(String) %>
        <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
-         <%= content_tag(:div, msg, class: "alert alert-#{name}", style: "color:white") %>
+         <%= content_tag(:div, msg, class: "alert alert-#{name}", style: "color:red") %>
        </div>
      <% end %>
    <% end %>
