@@ -1,5 +1,6 @@
 class Film < ActiveRecord::Base
   include PgSearch
+  pg_search_scope :search_all, :against => [:title, :year, :watched, :rating]
 
   belongs_to :user
 
