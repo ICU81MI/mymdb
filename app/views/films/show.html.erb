@@ -1,9 +1,9 @@
 <h1> <%= @film.title %> </h1>
-<h2>Rating: <%= @film.rating %>/5 </h2>
+<h3>Rating: <%= @film.rating %>/5 </h3>
 <p> Year: <%= @film.year %> </p>
 <p> Description: <%= @film.description %> </p>
 <p> Cast: <%= @film.cast %> </p>
 <p> Watched? <%= @film.watched %> </p>
 
-<%= link_to 'Edit', edit_film_path(@film) %>
-<%= link_to "Back", films_path %>
+<%= link_to 'Update', edit_film_path(@film), class: "button button1" %>
+<%= link_to "Back", films_path, class: "button button1" %>

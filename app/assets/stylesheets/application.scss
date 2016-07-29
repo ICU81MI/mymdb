@@ -16,11 +16,15 @@
 
  */
 h1 {
-
+  color: #ff0000 ;
 }
 
 h2 {
   padding-left: 18%
+}
+
+h4 {
+  color: white;
 }
 
 #movie-list {
@@ -69,3 +73,41 @@ ul li {
 ul li:last-child {
     border-bottom: none
 }
+
+// .log-in {
+//   background: url(http://ak4.picdn.net/shutterstock/videos/891349/thumb/1.jpg) no-repeat;
+//   background-size: 100%;
+// }
+
+// .log-in {
+//   width: 500px;
+//   height: 400px;
+//   position: relative;
+//   z-index: 10;
+// }
+//
+// .container {
+//   width: 1000px;
+//   height: 700px;
+//   margin-top: 100px;
+//   position:relative;
+// }
+//
+// #marquee {
+//   top:0;
+//   left:0;
+//   right:0;
+//   bottom:0;
+//   position:absolute;
+// }
+//
+// #marquee img {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   margin: auto;
+//   min-width: 50%;
+//   min-height: 50%;
+// }
