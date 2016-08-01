@@ -15,6 +15,15 @@
  *= require foundation_and_overrides
 
  */
+.top-bar-title {
+  padding-left: 5%;
+}
+
+.top-bar-right {
+  padding-right: 5%;
+  border: none;
+}
+
 h1 {
   color: red;
 }
@@ -24,7 +33,7 @@ h2:hover {
 }
 
 h2 {
-  padding-left: 19.5%
+  padding-left: 19.5%;
 }
 
 h4 {
@@ -75,10 +84,10 @@ ul li {
 }
 
 ul li:last-child {
-    border-bottom: none
+    border-bottom: none;
 }
 
-#menu {
+.menu {
   border: none;
 }
 
