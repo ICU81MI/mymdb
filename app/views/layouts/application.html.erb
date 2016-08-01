@@ -22,7 +22,7 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <%= form_tag(films_path, :method => "get", id: "search-form", style: "background-color:white") do %>
+          <%= form_tag(films_path, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Films" %>
             <%= submit_tag "Search", class: "button button1", :name => nil, style: "background-color:red" %>
           <% end %>
