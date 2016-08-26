@@ -15,6 +15,16 @@
  *= require foundation_and_overrides
 
  */
+$red: #ff0000;
+$light-gray: #fbfbfb;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+$black: #1a1a1a;
+$white: #fefefe;
+$body-background: $light-gray;
+$body-font-color: $black;
+$body-font-family: 'Contrail One', Helvetica, Roboto, Arial, sans-serif;
+
 .top-bar-title {
   padding-left: 5%;
 }
@@ -25,11 +35,12 @@
 }
 
 h1 {
-  color: red;
+  color: $red;
+  letter-spacing: 1px;
 }
 
 h2:hover {
-  color: red;
+  color: $red;
 }
 
 h2 {
@@ -37,7 +48,7 @@ h2 {
 }
 
 h4 {
-  color: white;
+  color: $white;
 }
 
 #movie-list {
@@ -46,41 +57,41 @@ h4 {
 }
 
 .button {
-  background-color: red;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
+  background-color: $red;
+  border: none;
+  color: $white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: .4s; /* Safari */
+  transition-duration: .4s;
+  cursor: pointer;
 }
 
 
 .button1 {
-    background-color: white;
+    background-color: $white;
     color: black;
-    border: 2px solid red;
+    border: 2px solid $red;
 }
 
 .button1:hover {
-    background-color: red;
-    color: white;
+    background-color: $red;
+    color: $white;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-    border: 2px solid #ddd;
+    border: 2px solid $dark-gray;
 }
 
 ul li {
     padding: 8px 16px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid $dark-gray;
 }
 
 ul li:last-child {
@@ -98,15 +109,15 @@ ul li:last-child {
     float: left;
 
     a {
-      color: black;
+      color: $black;
 
       &:hover {
-        color: red;
+        color: $red;
       }
     }
 
     &.current {
-      background-color: #ddd;
+      background-color: $dark-gray;
     }
   }
 }

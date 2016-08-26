@@ -1,13 +1,4 @@
-<script>
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$("#new_film").hide();
-    $("button").click(function(){
-        $("#new_film").slideToggle();
-    });
-});
-</script>
+<script src="/toggle.js"></script>
 
 <h2>My Movies</h2>
   <div class="row">
@@ -17,10 +8,10 @@ $("#new_film").hide();
           <li><strong><h5>
             <%= film.title %>
           </h5></strong>
-          <p> Watched?  <%= film.watched -%></p>
+          <p> Watched?  <%= film.watched %></p>
           <% if film.watched = "Yes" %>
             <p>Rating: <%= film.rating %>/5</p>
-          <% end -%>
+          <% end %>
           <%= link_to 'Details', film_path(film) %>
           <%= link_to 'Update', edit_film_path(film) %></li>
         <% end %>
