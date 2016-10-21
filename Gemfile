@@ -11,7 +11,6 @@ gem 'launchy'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'kaminari'
-gem 'pg_search'
 gem 'puma'
 
 group :development, :test do

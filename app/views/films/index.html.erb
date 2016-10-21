@@ -1,5 +1,10 @@
 <script src="/toggle.js"></script>
 
+<%= link_to "Highest rated Films", films_path(sort_order: "high_to_low") %><br>
+<%= link_to "Lowest rated Films", films_path(sort_order: "low_to_high") %><br>
+<%= link_to "Films A-Z", films_path(sort_order: "a_to_z") %><br>
+
+
 <h2>My Movies</h2>
   <div class="row">
     <div class="small-6 large-6 columns text-center" id="movie-list">
@@ -9,7 +14,7 @@
             <%= film.title %>
           </h5></strong>
           <p> Watched?  <%= film.watched %></p>
-          <% if film.watched = "Yes" %>
+          <% if film.watched == "Yes" %>
             <p>Rating: <%= film.rating %>/5</p>
           <% end %>
           <%= link_to 'Details', film_path(film) %>
@@ -58,7 +63,3 @@
     </div>
   </div>
 </div>
-
-<% if !params[:search] %>
-  <%= paginate @films %>
-<% end %>
