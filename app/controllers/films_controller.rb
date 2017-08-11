@@ -3,16 +3,16 @@ class FilmsController < ApplicationController
 
   def index
     if current_user
-      @films = current_user.films
-      @films = Film.order(:title).page params[:page]
+      @films = current_user.films.order("title ASC")
+      # @films = Film.order(:title).page params[:page]
       if params[:sort_order] == "high_to_low"
-        @films = Film.all.order("rating DESC")
+        @films = current_user.films.order("rating DESC")
       elsif params[:sort_order] == "low_to_high"
-        @films = Film.all.order("rating ASC")
+        @films = current_user.films.order("rating ASC")
       elsif params[:sort_order] == "a_to_z"
-        @films = Film.all.order("title ASC")
-      else params[:search]
-        @films = Film.search(params[:search]).order(:title)
+        @films = current_user.films.order("title ASC")
+      elsif params[:search]
+        @films = current_user.films.search(params[:search]).order(:title)
       end
       @film = Film.new
       @watched_collection = ["Yes", "No"]
